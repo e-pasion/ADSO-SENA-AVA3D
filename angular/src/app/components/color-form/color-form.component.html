@@ -18,8 +18,8 @@
                 <div class="text-red-600" *ngIf="colorForm.get('codigo')?.hasError('pattern')&& colorForm.get('codigo')?.touched" >El formato del color es incorrecto</div>
             </div>
             <div class="flex justify-evenly">
-                <button id="submitColor" type="submit" class="text-black bg-green-100 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-4/12 py-2.5 text-center  disabled:bg-gray-400 disabled:cursor-not-allowed disabled:pointer-events-none" [disabled]="colorForm.invalid">Ingresar Color</button>
-                <a routerLink="/dashboard/verColores" class="text-black bg-yellow-100 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm w-4/12  py-2.5 text-center">Ver Colores</a>
+                <button id="submitColor" type="submit" class="text-black bg-green-100 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-4/12 py-2.5 text-center  disabled:bg-gray-400 disabled:cursor-not-allowed disabled:pointer-events-none" [disabled]="colorForm.invalid">{{botonTexto}}</button>
+                <a routerLink="/dashboard/ver-colores" class="text-black bg-yellow-100 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm w-4/12  py-2.5 text-center">Ver Colores</a>
             </div>
         </form>               
     </div> 

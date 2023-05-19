@@ -5,7 +5,8 @@ import { ColorListaComponent } from './pages/color-lista/color-lista.component';
 
 const routes: Routes = [
   {path:'dashboard/colores',component:ColorComponent},
-  {path:'dashboard/verColores',component:ColorListaComponent}
+  {path:'dashboard/ver-colores',component:ColorListaComponent},
+  {path:'dashboard/editar-color/:id',component:ColorComponent}
 ];
 
 @NgModule({

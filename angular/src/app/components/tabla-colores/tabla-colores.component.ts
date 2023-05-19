@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { color } from 'src/app/models/color';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudServiceService } from 'src/app/services/crud-service.service';
 
 @Component({

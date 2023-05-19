@@ -14,6 +14,7 @@ export class ColorFormComponent implements OnInit {
 
   colorForm: FormGroup;
   id: string | null;
+  botonTexto = "Ingresar Color";
 
   constructor(private fb:FormBuilder,private _service:CrudServiceService,private router:Router,private aRoute:ActivatedRoute){
     this.colorForm=this.fb.group({
@@ -29,13 +30,16 @@ export class ColorFormComponent implements OnInit {
   stl_viewer:any;
   colorSeleccionado: string= "#70f0ae";
   ngOnInit(){
-    this.initStlViewer();
+    if(this.id===null){
+    this.initStlViewer(this.colorSeleccionado);
+    }
+    this.esEditar();
   }
 
 
   
-  initStlViewer() {
-    this.stl_viewer = new StlViewer(this.stlCont.nativeElement,{models: [{ id: 0, filename: "dino.stl",color:this.colorSeleccionado,rotationx:Math.PI*1.5 }],auto_rotate:true});
+  initStlViewer(colorCodigo:string) {
+    this.stl_viewer = new StlViewer(this.stlCont.nativeElement,{models: [{ id: 0, filename: "dino.stl",color:colorCodigo,rotationx:Math.PI*1.5 }],auto_rotate:true});
   }
 
   cambiarColor(color:string){
@@ -54,6 +58,8 @@ export class ColorFormComponent implements OnInit {
       codigo:this.colorSeleccionado,
       estado:true
     }
+
+    if(this.id===null){
 
     this._service.guardar(COLOR,"colores").subscribe({
       complete: ()=>{
@@ -77,6 +83,48 @@ export class ColorFormComponent implements OnInit {
       },
     }
     )
+  }else{
+    this._service.actualizar(COLOR,"colores",this.id).subscribe({
+      complete: ()=>{
+        Swal.fire({
+          icon: 'success',
+          title: 'El color ha sido actualizado correctamente',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.router.navigate(['/dashboard/ver-colores']);
 
+      },
+      error: (e)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Hubo un error al actualizar el color intentelo denuevo',
+          showConfirmButton: false,
+          timer: 2000
+        })
+      },
+    }
+    )
+
+  }
+  }
+
+
+  esEditar(){
+    if (this.id!==null){
+      this.botonTexto='Editar Color'
+      this._service.obtenerUno("colores",this.id).subscribe({
+        next: (data)=>{
+          this.initStlViewer(data.codigo)
+          this.colorForm.setValue({
+            nombre:data.nombre,
+            codigo:data.codigo,
+            estado:data.estado
+          })
+          this.cambiarColor(data.codigo)
+        }
+
+      })
+    }
   }
 }
