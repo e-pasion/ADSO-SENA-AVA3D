@@ -1,0 +1,67 @@
+<div class="container mx-auto px-4 sm:px-8">         <!--Inicio Tabla  -->
+    <div class="py-1">
+        <div class="my-2 flex flex-row justify-between">
+            <a href="color.html" class="text-black bg-yellow-100 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg w-32 text-sm h-10   py-2.5 text-center">Crear Color</a>
+            <div class=" flex flex-col my-2 sm:my-0 sm:flex-row sm:justify-between">
+            <div class="flex flex-row mb-1 sm:mb-0">
+                <div class="relative w-32 h-10">
+                    <select class=" rounded-l border  sm:rounded-r-none sm:border-r-0 block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
+                        <option>Todos</option>
+                        <option>Activos</option>
+                        <option>Inactivos</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <i class="fa-solid fa-caret-down fa-lg text-gray-900"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="block relative w-32 h-10">
+                <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
+                    <i class="fa-solid fa-magnifying-glass fa-lg text-gray-600"></i>
+                </span>
+                <input placeholder="Buscar" class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+            </div>
+        </div>
+        </div>
+        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <div class="inline-block min-w-full shadow rounded-lg overflow-auto">
+                <table class="min-w-full leading-normal text-center">
+                    <thead>
+                        <tr>
+                            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-600 uppercase tracking-wider" *ngFor="let columna of columnas">{{ columna }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dato of datos">
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">Verde Pastel</p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">#70f0ae</p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap"><i class="fa-solid fa-circle fa-xl" style="color:#70f0ae ;"></i></p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">Activo</p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <i class="fa-solid fa-eye fa-lg"></i>
+                                <i class="fa-solid fa-pencil fa-lg"></i>
+                                <i class="fa-solid fa-trash fa-lg"></i>
+                            </td>
+                        </tr>
+                     
+                    </tbody>
+                </table>
+                <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                    <span class="text-xs xs:text-sm text-gray-900">Mostrando del 1 al 5 de un total de 100 colores</span>
+                    <div class="inline-flex mt-2 xs:mt-0">
+                        <button class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">Anterior</button>
+                        <button class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Fin de la tabla -->
