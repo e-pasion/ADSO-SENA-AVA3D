@@ -1,0 +1,48 @@
+<div class="flex">
+  <app-navbar-lateral></app-navbar-lateral>
+  <div class="flex-grow">
+      <app-navbar-superior></app-navbar-superior>
+      <div class="px-4 py-6 h-20 text-center lg:mt-8">
+      <h1 class="text-4xl font-bold text-gray-900">Empleados</h1>
+  </div>
+
+  <!-- inicio de la tabla -->
+
+
+  
+<div class="flex items-center flex-col  lg:mx-10 lg:mt-14">
+  <div class="w-full max-w-xs md:max-w-md ">
+    <form id="formColor" [formGroup]="empleadoForm" (ngSubmit)="agregarEmpleado()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-6">
+        <label for="codigoName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+        <input type="text" id="codigoName" class="h-10 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " formControlName="nombre" placeholder="Elias" required/>
+        <div class="text-red-600" *ngIf="empleadoForm.get('nombre')?.hasError('required')&&empleadoForm.get('nombre')?.touched">El campo no debe estar vacio</div>
+      </div>
+      <div class="mb-6">
+        <label for="codigoName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Usuario</label>
+        <input type="text" id="codigoName" class="h-10 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Seth" formControlName="user" required/>
+        <div class="text-red-600" *ngIf="empleadoForm.get('user')?.hasError('required')&&empleadoForm.get('user')?.touched">El campo no debe estar vacio</div>
+      </div>
+      <div class="mb-6">
+        <label for="codigoName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
+        <input type="password" id="codigoName" class="h-10 bg-gray-50 border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="*********" formControlName="contrasena" required/>
+        <div class="text-red-600" *ngIf="empleadoForm.get('contrasena')?.hasError('required')&&empleadoForm.get('contrasena')?.touched">El campo no debe estar vacio</div>
+      </div>
+      
+ 
+      <div class="flex justify-evenly">
+          <button id="submitColor" type="submit" class="text-black bg-green-100 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-4/12 py-2.5 text-center  disabled:bg-gray-400 disabled:cursor-not-allowed disabled:pointer-events-none" [disabled]="empleadoForm.invalid">{{botonTexto}}</button>
+          <a routerLink="/admin/listar-empleado" class="text-black bg-yellow-100 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm w-4/12  py-2.5 text-center">Ver Emple</a>
+      </div>
+      
+    </form>
+    <p class="text-center text-gray-500 text-xs">
+    </p>
+  </div>
+ 
+
+</div>
+<!-- fin de la tabla -->
+
+</div>
+</div>

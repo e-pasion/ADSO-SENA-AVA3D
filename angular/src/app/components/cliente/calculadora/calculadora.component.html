@@ -1,0 +1,44 @@
+<div class="flex-grow">
+    <app-navbar></app-navbar>
+    <div class="px-4 py-6 h-20 text-center lg:mt-8">
+</div> 
+ <div class="flex w-full items-center justify-center flex-col lg:flex-row lg:mx-10 lg:mt-14">
+
+        <div  class="bg-purple-100 flex flex-col justify-center items-center h-72 w-80  lg:h-96 p-4"  >
+            <div #stlCont class="h-64 w-72" ></div>
+        </div>
+        <div class=" w-80  lg:h-96 bg-white p-4">
+            <form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+        
+            <br>
+            <h5>2.Color</h5>
+            <label for="sc" class="sr-only">Underline select</label>
+            <select formControlName="color"  id="sc"  class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200  dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                <option  *ngFor="let color of listColores" value="{{color._id}}" >{{color.nombre}}</option>
+            </select>
+            <br>
+            <label for="rellenoRange" class="block mb-2">3.Relleno</label>
+
+            <div class="flex justify-center">
+            <input formControlName="relleno" id="rellenoRange" type="range" min="10" max="100" value="50" step="10" class="mt-2 mx-2 w-full h-2 bg-yellow-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+            <h4 id="nr" >50%</h4>
+
+            
+        </div>
+        <br>
+            <h5>4.Tamaño</h5>
+            
+            <div class="flex justify-center">
+                <input formControlName="tamano"  id="sizeRange" type="range" min="0.5" max="1.5" value="1" step="0.05" class="mt-2 mx-2 w-full h-2 bg-yellow-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 border-black">
+                <h4 class="w-10" id="sr" >100%</h4>
+    
+                
+            </div>
+           
+            <br>
+            <h5>Precio:</h5>
+            <h5 id="price">{{80000}}</h5>
+            <button  id="xd" type="submit" class="text-black bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 disabled:bg-yellow-200">Comprar</button>
+        </form>
+        </div>
+    </div>
