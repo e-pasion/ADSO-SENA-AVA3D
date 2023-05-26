@@ -1,5 +1,4 @@
 const {model,Schema} = require("mongoose");
-const Color=require("./Color")
 
 const MaterialSchema= new Schema({
     nombre:{type:String,required:true},

@@ -7,6 +7,5 @@ router.post('/',colorController.crearColor);
 router.get('/',colorController.obtenerColores);
 router.get('/:id',colorController.obtenerColor);
 router.put('/:id',colorController.actualizarColor);
-router.delete('/:id',colorController.eliminarColor);
 
 module.exports=router;

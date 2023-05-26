@@ -37,7 +37,7 @@ exports.obtenerMaterial= async (req,res)=>{
     }
 }
 
-exports.actualizarColor= async (req,res) =>{
+exports.actualizarMaterial= async (req,res) =>{
     try{
         const {nombre,codigo,estado}=req.body;
         let material= await Material.findById(req.params.id);
@@ -58,7 +58,7 @@ exports.actualizarColor= async (req,res) =>{
     }
 }
 
-exports.eliminarColor= async (req,res)=>{
+exports.eliminarMaterial= async (req,res)=>{
     try{
         let material= await Material.findById(req.params.id);
         if(!material){
