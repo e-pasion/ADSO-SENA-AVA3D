@@ -17,16 +17,16 @@ function ListarEmpleado() {
   return (
     <div>
       <div class="flex">
-  <app-navbar-lateral></app-navbar-lateral>
+  <NavbarLateral></NavbarLateral>
   <div class="flex-grow">
-      <app-navbar-superior></app-navbar-superior>
+      <NavbarAdmin></NavbarAdmin>
       <div class="px-4 py-6 h-20 text-center lg:mt-8">
       <h1 class="text-4xl font-bold text-gray-900">Empleados</h1>
   </div>
     <div class="overflow-hidden mx-auto  w-3/4 px-4 sm:px-8">
       <div class="py-1">
           <div class="my-2 flex flex-row justify-between flex-wrap">
-              <a routerLink="/admin/crear-empleado" class="my-1 text-black bg-yellow-100 hover:bg-yellow-200 w-24 text-sm h-10 rounded-lg font-medium py-2.5 text-center">Crear Emple</a>
+              <Link to="/admin/crear-empleado" class="my-1 text-black bg-yellow-100 hover:bg-yellow-200 w-24 text-sm h-10 rounded-lg font-medium py-2.5 text-center">Crear Emple</Link>
           </div>
           </div>
           <div class="-mx-4 flex justify-center sm:-mx-8 px-4 sm:px-8 py-4 ">
